@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Segmentation Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+<header class="hero">
+
+<div class="logo">
+🎯
+</div>
+
+<div>
+<h1>Customer Segmentation</h1>
+<p>
+Upload customer datasets, analyze behavior using K-Means Clustering,
+and classify customers into Budget, Regular, Premium, and VIP groups.
+</p>
+</div>
+
+</header>
+
+<section class="upload-card">
+
+<h2>Upload Dataset</h2>
+
+<div class="upload-area" id="dropZone">
+
+<p>📂 Drag & Drop CSV File Here</p>
+
+<p>or</p>
+
+<input type="file" id="csvFile" accept=".csv">
+
+</div>
+
+<div class="button-group">
+
+<button id="sampleBtn">
+Load Sample Data
+</button>
+
+<button id="clusterBtn">
+Run K-Means Clustering
+</button>
+
+<button id="exportBtn">
+Export CSV
+</button>
+
+</div>
+
+</section>
+
+<section class="stats-grid">
+
+<div class="stat-card">
+<h3>Total Customers</h3>
+<span id="totalCustomers">0</span>
+</div>
+
+<div class="stat-card budget">
+<h3>Budget</h3>
+<span id="budgetCount">0</span>
+</div>
+
+<div class="stat-card regular">
+<h3>Regular</h3>
+<span id="regularCount">0</span>
+</div>
+
+<div class="stat-card premium">
+<h3>Premium</h3>
+<span id="premiumCount">0</span>
+</div>
+
+<div class="stat-card vip">
+<h3>VIP</h3>
+<span id="vipCount">0</span>
+</div>
+
+</section>
+
+<section class="table-controls">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search customer..."
+>
+
+<select id="segmentFilter">
+<option value="All">All Segments</option>
+<option value="Budget">Budget</option>
+<option value="Regular">Regular</option>
+<option value="Premium">Premium</option>
+<option value="VIP">VIP</option>
+</select>
+
+</section>
+
+<section class="table-section">
+
+<table id="customerTable">
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Age</th>
+<th>Income</th>
+<th>Spending Score</th>
+<th>Frequency</th>
+<th>Segment</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</section>
+
+<div class="pagination" id="pagination"></div>
+
+<section class="charts-grid">
+
+<div class="chart-card">
+<h3>Customer Segments</h3>
+<canvas id="pieChart"></canvas>
+</div>
+
+<div class="chart-card">
+<h3>Segment Distribution</h3>
+<canvas id="barChart"></canvas>
+</div>
+
+</section>
+
+<section class="charts-grid">
+
+<div class="chart-card full">
+<h3>Income vs Spending Score</h3>
+<canvas id="scatterChart"></canvas>
+</div>
+
+</section>
+
+<footer>
+
+<p>
+Customer Segmentation Dashboard • K-Means Analytics
+</p>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
